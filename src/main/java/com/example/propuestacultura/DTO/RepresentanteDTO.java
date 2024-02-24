@@ -1,56 +1,36 @@
-package com.example.propuestacultura.models;
+package com.example.propuestacultura.DTO;
 
+public class RepresentanteDTO {
 
-import jakarta.persistence.*;
-
-import java.util.UUID;
-
-@Entity
-@Table(name="representantes")
-public class Representante {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id_representante;
-
-    @ManyToOne
-    @JoinColumn(name="id_tipo_documento", referencedColumnName = "id_tipo_documento")
-    private TipoDocumento tipo_documento;
-
-    @Column(name = "numero_documento")
+    private String tipo_documento;
     private String numero_documento;
-
-    @Column(name = "primer_nombre")
     private String primer_nombre;
-
-    @Column(name = "primer_apellido")
     private String primer_apellido;
-
-    @Column(name = "telefono_fijo")
     private String telefono_fijo;
-
-    @Column(name = "telefono_celular")
     private String telefono_celular;
-
-    @Column(name="correo_electronico")
     private String correo_electronico;
 
-    public UUID getId_representante() {
-        return id_representante;
+    public RepresentanteDTO() {
     }
 
-    public void setId_representante(UUID id_representante) {
-        this.id_representante = id_representante;
-    }
-
-
-
-    public String getNumero_documento() {
-        return numero_documento;
-    }
-
-    public void setNumero_documento(String numero_documento) {
+    public RepresentanteDTO(String tipo_documento, String numero_documento, String primer_nombre,
+                            String primer_apellido, String telefono_fijo, String telefono_celular
+            , String correo_electronico) {
+        this.tipo_documento = tipo_documento;
         this.numero_documento = numero_documento;
+        this.primer_nombre = primer_nombre;
+        this.primer_apellido = primer_apellido;
+        this.telefono_fijo = telefono_fijo;
+        this.telefono_celular = telefono_celular;
+        this.correo_electronico = correo_electronico;
+    }
+
+    public String getTipo_documento() {
+        return tipo_documento;
+    }
+
+    public void setTipo_documento(String tipo_documento) {
+        this.tipo_documento = tipo_documento;
     }
 
     public String getPrimer_nombre() {
@@ -93,11 +73,11 @@ public class Representante {
         this.correo_electronico = correo_electronico;
     }
 
-    public TipoDocumento getTipo_documento() {
-        return tipo_documento;
+    public String getNumero_documento() {
+        return numero_documento;
     }
 
-    public void setTipo_documento(TipoDocumento tipo_documento) {
-        this.tipo_documento = tipo_documento;
+    public void setNumero_documento(String numero_documento) {
+        this.numero_documento = numero_documento;
     }
 }
